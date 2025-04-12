@@ -1,18 +1,10 @@
 "use client"
-import { Card, CardContent, CardHeading, CardLink } from "../components/Card";
 import { Heading1 } from "../components/Heading";
-import { ByLine, Paragraph } from "../components/Paragraph";
+import { ProjectCardList } from "../components/Projects";
 import { Separator } from "../components/Separator";
 import { useLanguage } from "../context/LanguageContext";
 
-type Project = {
-    title: string;
-    content: string;
-    githubUrl: string;
-    deployment: string;
-    technologyUsed: string[];
-    byLine: string;
-}
+
 
 export default function Projects() {
 
@@ -73,15 +65,6 @@ export default function Projects() {
         }
     };
 
-    // Example of how to access the new project data:
-    // console.log(config.en.projects[0].title); // English project title
-    // console.log(config.hi.projects[0].title); // Hindi project title
-    // console.log(config.en.projects[1].technologyUsed); // English technology list (same as Hindi)
-    // console.log(config.hi.projects[1].technologyUsed); // English technology list
-    // console.log(config.en.projects[2].content); // English project content
-    // console.log(config.hi.projects[2].content); // Hindi project content
-
-
     return (
         <main className="w-full p-4">
             <Heading1>
@@ -93,42 +76,3 @@ export default function Projects() {
     );
 }
 
-export function ProjectCardList({ projects }: { projects: Project[] }) {
-    return (
-        <div className="flex flex-col gap-8 p-5">
-            {projects.map((project, idx) => <ProjectCard key={idx} project={project} />)}
-        </div>
-    )
-}
-
-export function ProjectCard({ project }: { project: Project }) {
-    return (
-        <div className="w-full">
-            <CardLink to={project.deployment}>
-                <Card>
-                    <CardHeading>
-                        {project.title}
-                    </CardHeading>
-                    <ByLine>{project.byLine}</ByLine>
-                    <Separator />
-                    <CardContent>
-                        <div className="">
-                            <Paragraph>
-                                {project.content}
-                            </Paragraph>
-                        </div>
-                    </CardContent>
-                    <Separator />
-                    <CardContent>
-                        <div className="">
-                            <Paragraph className="font-mono tracking-wider">
-                                {project.technologyUsed.join(' \u2022 ')}
-                            </Paragraph>
-                        </div>
-                    </CardContent>
-
-                </Card>
-            </CardLink>
-        </div>
-    )
-}
