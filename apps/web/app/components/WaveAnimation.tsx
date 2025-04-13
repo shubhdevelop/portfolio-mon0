@@ -135,7 +135,7 @@ interface WaveAnimationProps {
     maxAmplitude?: number;
     length?: number;
     frequency?: number;
-    className: string
+    className?: string
     // Add any other configurable Wave parameters as props if desired
 }
 
