@@ -7,6 +7,7 @@ import pfp from "../public/pfp.jpg"
 import { Timeline } from "./components/Timeline";
 import { ByLine, Paragraph } from "./components/Paragraph";
 import { useLanguage } from "./context/LanguageContext";
+import { WaveAnimation } from "./components/WaveAnimation";
 
 const config = {
   en: {
@@ -119,32 +120,18 @@ const config = {
   }
 };
 
-// Example of how to access the new items:
-// console.log(config.en.profileIntro); // English intro
-// console.log(config.hi.profileIntro); // Hindi intro
-// console.log(config.en.callToAction); // English CTA
-// console.log(config.hi.callToAction); // Hindi CTA
-
-// Example of how to access:
-// console.log(config.en.experienceTimelineItems[0].title); // English title
-// console.log(config.hi.experienceTimelineItems[0].title); // Hindi title
-// console.log(config.en.EducationTimelineItems[1].description); // English description
-// console.log(config.hi.EducationTimelineItems[1].description); // Hindi description
 export default function Home() {
 
   const { language } = useLanguage()
 
   return (
-    <main>
+    <main >
       <Card>
         <CardLink to={"https://x.com/shubhamdoesjs"}>
           <CardContent>
-            <div className="flex flex-row items-center justify-center w-full h-full gap-10 noise p-4 rounded-sm">
+            <div className="flex flex-row items-center justify-center w-full gap-10 noise rounded-sm">
               <Image src={pfp} className="w-15 h-15 bg-mask noise" alt="Profile Picture" />
-              <div className="w-full">
-                <Heading3>twitter &#8599;</Heading3>
-                <Paragraph> Let's Connect</Paragraph>
-              </div>
+              <WaveAnimation />
             </div>
           </CardContent>
         </CardLink>

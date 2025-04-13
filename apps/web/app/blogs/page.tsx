@@ -1,4 +1,5 @@
 import { ByLine } from "../components/Paragraph";
+import { WaveAnimation } from "../components/WaveAnimation";
 
 export default function Blog() {
     return (

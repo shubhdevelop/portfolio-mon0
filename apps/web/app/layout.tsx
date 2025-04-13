@@ -1,6 +1,6 @@
 import "./globals.css";
 import { ThemeProvider, } from "./context/ThemeContext";
-import Root from "./components/Root";
+import Root from "./Root";
 import { LanguageProvider } from "./context/LanguageContext";
 
 export default function RootLayout({
